@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
+
+android {
+    compileSdkVersion 32
+    defaultConfig {
+        applicationId "com.huawei.cloud.drive"
+        minSdkVersion 22
+        targetSdkVersion 32
+        versionCode 10000300
+        versionName "1.0.0.300"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+//    signingConfigs {
+//        debug {
+//            storeFile file('******')
+//            keyAlias '******'
+//            keyPassword '******'
+//            storePassword '******'
+//            v2SigningEnabled false
+//        }
+//        release {
+//            storeFile file('******')
+//            keyAlias '******'
+//            keyPassword '******'
+//            storePassword '******'
+//            v2SigningEnabled false
+//        }
+//    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.6.1'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.huawei.hms:drive:5.0.0.300'
+    implementation 'com.huawei.hms:hwid:4.0.0.300'
+}
